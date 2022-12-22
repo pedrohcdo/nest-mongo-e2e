@@ -1,6 +1,5 @@
 import { HttpModule } from '@nestjs/axios'
 import { DynamicModule, ForwardReference, Type } from '@nestjs/common'
-import { ConfigService } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing'
 import { genTestUri } from '../../test/global-e2e-consts'

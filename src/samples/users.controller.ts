@@ -6,9 +6,9 @@ import { UsersService } from './users.service'
 export class UsersController {
 	constructor(private readonly usersService: UsersService) {}
 
-	@Get('get-user-name/:userId')
-	@ApiParam({ name: 'userId', example: '61d5b3c273ef284bab47baa0' })
-	getUserById(@Param('userId') userId: string) {
-		return this.usersService.getUserNameById(userId)
+	@Get('get-user-name/:email')
+	@ApiParam({ name: 'email', example: 'sample@gmail.com' })
+	getUserNameByEmail(@Param('email') email: string) {
+		return this.usersService.getUserNameByEmail(email)
 	}
 }

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { GlobalModule } from './config/global.module'
-import { UsersModule } from './samples/users/users.module'
+import { UsersModule } from './samples/users.module'
 
 @Module({
 	imports: [GlobalModule, UsersModule],

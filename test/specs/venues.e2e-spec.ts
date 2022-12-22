@@ -3,11 +3,11 @@ import { HttpService } from '@nestjs/axios'
 import request from 'supertest'
 import { Model } from 'mongoose'
 import { StubFactory } from '../../src/repository/__mocks__/stubs-data'
-import { User } from 'src/repository/user/user.model'
-import { UsersModule } from 'src/samples/users/users.module'
+import { User } from '../../src/repository/user/user.model'
+import { UsersModule } from '../../src/samples/users.module'
 import { getModelToken } from '@nestjs/mongoose'
-import { TestUtils } from 'test/utils/test-utils'
 import { ConfigModule } from '@nestjs/config'
+import { TestUtils } from '../utils/test-utils'
 
 describe('UsersModule (e2e)', () => {
 	let app: INestApplication
@@ -23,7 +23,6 @@ describe('UsersModule (e2e)', () => {
 			}))
 		)
 
-		
 		app = module.createNestApplication()
 
 		userModel = module.get<Model<User>>(getModelToken(User.name))
@@ -39,11 +38,11 @@ describe('UsersModule (e2e)', () => {
 			await new userModel(userStub).save()
 		})
 
-		it(`/xxx/email/${userStub.email} (GET) should return the email`, async () => {
+		it(`/users/get-user-name/${userStub.email} (GET) should return the correct name`, async () => {
 			await request(app.getHttpServer())
 				.get(`/xxx/email/${userStub.email.toString()}`)
 				.expect(200)
-				.expect('sample@gmail.com')
+				.expect(userStub.name.trim())
 		})
 
 		afterAll(async () => {

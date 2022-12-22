@@ -7,7 +7,9 @@ import { User } from './user.model'
 export class UserRepository {
 	constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
-	async getById(userId: Types.ObjectId): Promise<User> {
-		return await this.userModel.findById(userId)
+	async getByEmail(email: string): Promise<User> {
+		return await this.userModel.findOne({
+			email: email
+		})
 	}
 }

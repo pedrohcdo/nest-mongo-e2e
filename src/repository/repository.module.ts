@@ -6,14 +6,14 @@ import { UserRepository } from './user/user.repository'
 @Module({
 	imports: [
 		MongooseModule.forFeature([
-			{ 
-				name: User.name, 
-				schema: UserSchema 
-			}
-		])
+			{
+				name: User.name,
+				schema: UserSchema,
+			},
+		]),
 	],
-	
-	providers: [ UserRepository ],
-	exports: [ UserRepository ],
+
+	providers: [UserRepository],
+	exports: [UserRepository],
 })
 export class RepositoryModule {}

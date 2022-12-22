@@ -7,15 +7,11 @@ import { genTestUri } from '../../test/global-e2e-consts'
 
 type ModuleType = Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference
 
-
 export class TestUtils {
-
 	/**
-	 * 
+	 *
 	 */
-	static async createE2EModule(
-		...importModules: ModuleType[]
-	): Promise<TestingModule> {
+	static async createE2EModule(...importModules: ModuleType[]): Promise<TestingModule> {
 		return Test.createTestingModule({
 			providers: [],
 			imports: [
@@ -25,12 +21,11 @@ export class TestUtils {
 				}),
 				MongooseModule.forRoot(genTestUri(), {
 					retryDelay: 2000,
-					retryAttempts: 3
+					retryAttempts: 3,
 				}),
 				...importModules,
 			],
-			exports: [
-			]
+			exports: [],
 		}).compile()
 	}
 }

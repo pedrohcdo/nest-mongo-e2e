@@ -7,7 +7,8 @@ ____________
 
 ## Testing the app
 
-The tests executed here use mongo in memory, as soon as the test is started mongo in memory starts automatically (without the need to use a uri) and after all the tests are executed, mongo is finished.
+The tests executed here use mongo in memory, as soon as the test is started mongo in memory starts automatically (without the need to use a uri) and after all the tests are executed, mongo is finished. 
+The e2e tests are located in the `test` folder.
 
 ```bash
 # development mode

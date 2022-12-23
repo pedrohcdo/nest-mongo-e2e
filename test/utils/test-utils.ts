@@ -1,8 +1,7 @@
 import { HttpModule } from '@nestjs/axios'
 import { DynamicModule, ForwardReference, Type } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing'
-import { genTestUri } from '../../test/global-e2e-consts'
+import { Test, TestingModule } from '@nestjs/testing'
 
 type ModuleType = Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference
 
@@ -18,7 +17,7 @@ export class TestUtils {
 					timeout: 10000,
 					maxRedirects: 5,
 				}),
-				MongooseModule.forRoot(genTestUri(), {
+				MongooseModule.forRoot(global.E2E_MONGO_URI, {
 					retryDelay: 2000,
 					retryAttempts: 3,
 				}),

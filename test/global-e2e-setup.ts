@@ -4,11 +4,7 @@ export default async () => {
 	const grrenTag = '\x1b[42m%s\x1b[0m'
 	console.log()
 	console.log(grrenTag, 'Setup', 'The mongo server is being setting up')
-	const mongoDbInMemory = new MongoMemoryServer({
-		instance: {
-			port: 51751,
-		},
-	})
+	const mongoDbInMemory = new MongoMemoryServer()
 	await mongoDbInMemory.start()
 	console.log(
 		grrenTag,
@@ -16,6 +12,7 @@ export default async () => {
 		'The mongo server has been configured correctly: ' + mongoDbInMemory.getUri()
 	)
 
+	global.E2E_MONGO_URI = `${mongoDbInMemory.getUri()}`;
 	global.E2E_CONTEXT = {
 		teardown: async () => {
 			console.log(grrenTag, 'Teardown', 'The mongo server is being stoped')

@@ -31,6 +31,11 @@ describe('UsersModule (e2e)', () => {
 		await app.init()
 	})
 
+	afterAll(async () => {
+		return app.close()
+	});
+
+
 	describe('with stub sample', () => {
 		const userStub = StubFactory.createForUser()
 
@@ -40,13 +45,13 @@ describe('UsersModule (e2e)', () => {
 
 		it(`/users/get-user-name/${userStub.email} (GET) should return the correct name`, async () => {
 			await request(app.getHttpServer())
-				.get(`/xxx/email/${userStub.email.toString()}`)
+				.get(`/users/get-user-name/${userStub.email.toString()}`)
 				.expect(200)
 				.expect(userStub.name.trim())
 		})
 
 		afterAll(async () => {
-			await userModel.deleteOne({ _id: userStub.email })
+			await userModel.deleteOne({ email: userStub.email })
 		})
 	})
 })

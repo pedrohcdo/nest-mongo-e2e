@@ -1,74 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
 $ npm install
 ```
+____________
+
+## Testing the app
+
+The tests executed here use mongo in memory, as soon as the test is started mongo in memory starts automatically (without the need to use a uri) and after all the tests are executed, mongo is finished.
+
+```bash
+# development mode
+$ npm run test:e2e
+```
+
+____________
 
 ## Running the app
 
-```bash
-# development
-$ npm run start
+But if you want to start the project normally, you need to configure a local uri and a port where the server will be started.
 
-# watch mode
-$ npm run start:local
-
-# watch mode
-$ npm run start:dev
-
-# watch mode
-$ npm run start:staging
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Hosts
-
-<br/>
-
-## Env files
+### Env files for run your project
 
 | NODE_ENV    | File                        |
 | ----------- | --------------------------- |
-| local       | environment/local.env       |
-| debug       | environment/debug.env       |
-| test        | environment/test.env        |
 | development | environment/development.env |
-| staging     | environment/staging.env     |
-| production  | environment/production.env  |
 
-<br/>
-
-## Env vars
+### Env vars
 
 | Name                  | Type   |
 | --------------------- | ------ |
 | PORT                  | Number |
 | MONGO_URI             | String |
-| MONGO_RETRY_ATTEMPTS  | Number |
-| MONGO_RETRY_DELAY     | Number |
-| MONGO_CONNECTION_NAME | String |
 
-<br/><br/>
+
+### Running the app
+
+```bash
+# development mode
+$ npm run start:dev
+```
+

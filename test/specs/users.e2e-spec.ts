@@ -33,8 +33,7 @@ describe('UsersModule (e2e)', () => {
 
 	afterAll(async () => {
 		return app.close()
-	});
-
+	})
 
 	describe('with stub sample', () => {
 		const userStub = StubFactory.createForUser()
